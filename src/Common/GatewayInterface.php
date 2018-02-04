@@ -7,88 +7,94 @@ interface GatewayInterface
     /**
      * Get the supported symbols.
      *
-     * @param  array  $params
      * @return array
      */
-    public function symbols(array $params = []);
+    public function symbols();
 
     /**
      * Get the latest indicators for given symbol.
      *
-     * @param  array  $params
+     * @param  string  $symbol
      * @return array
      */
-    public function ticker(array $params = []);
+    public function ticker($symbol);
 
     /**
      * Get a list of bids and asks in the order book (depth) for given symbol.
      *
-     * @param  array  $params
+     * @param  string  $symbol
+     * @param  int  $limit
      * @return array
      */
-    public function orderBook(array $params = []);
+    public function orderBook($symbol, $limit = 50);
 
     /**
      * Get a list of the most recent trades for the given symbol.
      *
-     * @param  array  $params
+     * @param  string  $symbol
+     * @param  int  $limit
      * @return array
      */
-    public function trades(array $params = []);
+    public function trades($symbol, $limit = 50);
 
     /**
      * Get the user's balance report.
      *
-     * @param  array  $params
      * @return array
      */
-    public function balances(array $params = []);
+    public function balances();
 
     /**
      * Submit a new buy order.
      *
-     * @param  array  $params
+     * @param  string  $symbol
+     * @param  float  $amount
+     * @param  float  $price
      * @return array
      */
-    public function buy(array $params = []);
+    public function buy($symbol, $amount, $price);
 
     /**
      * Submit a new sell order.
      *
-     * @param  array  $params
+     * @param  string  $symbol
+     * @param  float  $amount
+     * @param  float  $price
      * @return array
      */
-    public function sell(array $params = []);
+    public function sell($symbol, $amount, $price);
 
     /**
      * Get the order status.
      *
-     * @param  array  $params
+     * @param  string  $symbol
+     * @param  string  $id
      * @return array
      */
-    public function status(array $params = []);
+    public function status($symbol, $id);
 
     /**
      * Cancel an order.
      *
-     * @param  array  $params
+     * @param  string  $symbol
+     * @param  string  $id
      * @return array
      */
-    public function cancel(array $params = []);
+    public function cancel($symbol, $id);
 
     /**
      * Get the user's open orders.
      *
-     * @param  array  $params
+     * @param  string|null  $symbol
      * @return array
      */
-    public function openOrders(array $params = []);
+    public function openOrders($symbol = null);
 
     /**
      * Get the user's order histories.
      *
-     * @param  array  $params
+     * @param  string|null  $symbol
      * @return array
      */
-    public function tradeHistory(array $params = []);
+    public function tradeHistory($symbol = null);
 }
