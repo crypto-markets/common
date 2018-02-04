@@ -2,7 +2,6 @@
 
 namespace CryptoMarkets\Common;
 
-use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\ResponseInterface;
 
 abstract class Endpoint
