@@ -2,7 +2,7 @@
 
 namespace CryptoMarkets\Common;
 
-abstract class Gateway
+abstract class Gateway implements GatewayInterface
 {
     /**
      * The HTTP client instance.
