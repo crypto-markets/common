@@ -81,6 +81,61 @@ class MockGateway extends Gateway
         return 'Mock';
     }
 
+    public function symbols()
+    {
+        return [];
+    }
+
+    public function ticker($symbol)
+    {
+        return [];
+    }
+
+    public function orderBook($symbol, $limit = 50)
+    {
+        return [];
+    }
+
+    public function trades($symbol, $limit = 50)
+    {
+        return [];
+    }
+
+    public function balances()
+    {
+        return [];
+    }
+
+    public function buy($symbol, $amount, $price)
+    {
+        return [];
+    }
+
+    public function sell($symbol, $amount, $price)
+    {
+        return [];
+    }
+
+    public function status($symbol, $id)
+    {
+        return [];
+    }
+
+    public function cancel($symbol, $id)
+    {
+        return [];
+    }
+
+    public function openOrders($symbol = null)
+    {
+        return [];
+    }
+
+    public function tradeHistory($symbol = null)
+    {
+        return [];
+    }
+
     public function example(array $params = [])
     {
         return $this->createRequest(MockEndpoint::class, $params);
