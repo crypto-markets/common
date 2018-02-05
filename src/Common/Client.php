@@ -50,6 +50,11 @@ class Client implements RequestFactory
             $body = http_build_query($body, '', '&');
         }
 
+        if ($method == 'GET') {
+            $uri .= ((strpos('?', $uri) === false) ? '?' : '&').$body;
+            $body = '';
+        }
+
         return $this->requestFactory->createRequest($method, $uri, $headers, $body, $protocol);
     }
 
