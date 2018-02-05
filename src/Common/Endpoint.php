@@ -39,6 +39,22 @@ abstract class Endpoint
     }
 
     /**
+     * Create a new resource instance.
+     *
+     * @param  \CryptoMarkets\Common\Client  $httpClient
+     * @param  array  $params
+     * @return static
+     */
+    public static function make(Client $httpClient, array $params = [])
+    {
+        $instance = new static($httpClient);
+
+        $instance->configure($params);
+
+        return $instance;
+    }
+
+    /**
      * Configure the request parameters.
      *
      * @param  array  $params
