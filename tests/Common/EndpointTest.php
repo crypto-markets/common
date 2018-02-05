@@ -12,6 +12,17 @@ class EndpointTest extends TestCase
         $this->protectedEndpoint = new ProtectedEndpoint($this->getHttpClient());
     }
 
+    public function testMake()
+    {
+        $client = $this->getHttpClient();
+        $params = ['foo' => 'bar'];
+
+        $endpoint = PublicEndpoint::make($client, $params);
+
+        $this->assertSame($params, $endpoint->getParams());
+        $this->assertInstanceOf(get_class($client), $endpoint->getHttpClient());
+    }
+
     public function testMethod()
     {
         $this->assertSame('POST', $this->publicEndpoint->getMethod());
@@ -85,6 +96,16 @@ abstract class BaseEndpoint extends Endpoint
     public function getData()
     {
         return array_merge(parent::getData(), ['symbol' => 'ETHUSDT']);
+    }
+
+    public function getParams()
+    {
+        return $this->params;
+    }
+
+    public function getHttpClient()
+    {
+        return $this->httpClient;
     }
 }
 
